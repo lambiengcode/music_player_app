@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_music_player/src/public/style.dart';
+import 'package:flutter_music_player/src/repositories/playlist.dart';
+import 'package:flutter_music_player/src/repositories/song.dart';
+import 'package:flutter_music_player/src/views/home/components/playlist_card.dart';
 import 'package:flutter_music_player/src/views/home/components/song_card.dart';
 import 'package:flutter_music_player/src/views/home/components/top_bar.dart';
 import 'package:flutter_music_player/src/views/home/components/welcome.dart';
@@ -26,6 +29,7 @@ class _HomeViewState extends State<HomeView> {
             TopBar(),
             _spaceWidget(context),
             Welcome(),
+            _spaceWidget(context),
             Expanded(
               child: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overscroll) {
@@ -37,7 +41,6 @@ class _HomeViewState extends State<HomeView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _spaceWidget(context),
                       _spaceWidget(context),
                       _buildTitle(context, 'Recently played'),
                       _spaceWidget(context),
@@ -81,11 +84,12 @@ class _HomeViewState extends State<HomeView> {
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             padding: EdgeInsets.all(.0),
-            itemCount: 3,
+            itemCount: songs.length,
             itemBuilder: (context, index) {
               return SongCard(
                 index: index,
                 isLast: index == 2,
+                songInfo: songs[index],
               );
             },
           ),
@@ -107,11 +111,10 @@ class _HomeViewState extends State<HomeView> {
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             padding: EdgeInsets.all(.0),
-            itemCount: 3,
+            itemCount: playlists.length,
             itemBuilder: (context, index) {
-              return SongCard(
-                index: index,
-                isLast: index == 2,
+              return PlaylistCard(
+                playlistInfo: playlists[index],
               );
             },
           ),
