@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_music_player/src/public/style.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -13,24 +14,25 @@ class _TopBarState extends State<TopBar> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildButton(context, Icons.search),
-        _buildButton(context, Icons.more_horiz),
+        _buildButton(context, Feather.search),
+        _buildButton(context, Feather.headphones),
       ],
     );
   }
 
   Widget _buildButton(context, icon) {
     final _size = MediaQuery.of(context).size;
-    return Neumorphic(
+    return NeumorphicButton(
       child: Icon(
         icon,
-        size: _size.width / 16.0,
+        size: _size.width / 14.5,
       ),
-      padding: EdgeInsets.all(_size.width / 32.0),
+      padding: EdgeInsets.all(_size.width / 26.0),
       style: NeumorphicStyle(
-        shape: NeumorphicShape.concave,
-        depth: 10.0,
-        color: mC,
+        shape: NeumorphicShape.convex,
+        boxShape: NeumorphicBoxShape.circle(),
+        depth: 20.0,
+        color: colorBlack2,
       ),
     );
   }

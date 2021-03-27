@@ -1,8 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_music_player/src/views/home/view.dart';
+import 'views/home/view.dart';
 
 class App extends StatefulWidget {
   @override
