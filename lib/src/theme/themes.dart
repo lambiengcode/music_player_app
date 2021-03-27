@@ -1,15 +1,23 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_music_player/src/public/style.dart';
 
 class Themes {
-  final lightTheme = NeumorphicThemeData(
-    baseColor: Color(0xFFFFFFFF),
-    lightSource: LightSource.topLeft,
-    depth: 10,
+  final lightTheme = ThemeData.light().copyWith(
+    primaryColor: colorPrimary,
+    appBarTheme: AppBarTheme(
+      brightness: Brightness.light,
+      textTheme: TextTheme(
+        headline2: TextStyle(color: colorTitle),
+      ),
+    ),
   );
-
-  final darkTheme = NeumorphicThemeData(
-    baseColor: Color(0xFF3E3E3E),
-    lightSource: LightSource.topLeft,
-    depth: 6,
+  final darkTheme = ThemeData.dark().copyWith(
+    primaryColor: colorPrimary,
+    appBarTheme: AppBarTheme(
+      brightness: Brightness.dark,
+      textTheme: TextTheme(
+        headline2: TextStyle(color: mC),
+      ),
+    ),
   );
 }
