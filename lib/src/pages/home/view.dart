@@ -80,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
     void showPaymentBottomSheet() {
       showModalBottomSheet(
         isScrollControlled: true,
-        backgroundColor: colorBlack1.withOpacity(.55),
+        backgroundColor: colorBlack1.withOpacity(.75),
         context: context,
         builder: (context) {
           return MusicPage();
