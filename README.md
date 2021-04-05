@@ -15,4 +15,5 @@ lambiengcode
 <p>
 <img src="https://github.com/lambiengcode/flutter_music_player/blob/master/screenshots/home1.png?raw=true" width="200px"/>
 <img src="https://github.com/lambiengcode/flutter_music_player/blob/master/screenshots/home2.png?raw=true" width="200px"/>
+<img src="https://github.com/lambiengcode/flutter_music_player/blob/master/screenshots/play_music.png?raw=true" width="200px"/>
 </p>
