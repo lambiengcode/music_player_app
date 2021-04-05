@@ -1,8 +1,6 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_music_player/src/views/home/view.dart';
-import 'views/home/view.dart';
+import 'package:flutter_music_player/src/pages/home/view.dart';
 
 class App extends StatefulWidget {
   @override
@@ -14,10 +12,8 @@ class _AppState extends State<App> with WidgetsBindingObserver {
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness:
-          Platform.isAndroid ? Brightness.dark : Brightness.light,
-      statusBarIconBrightness:
-          Platform.isAndroid ? Brightness.dark : Brightness.light,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.light,
     ));
     WidgetsBinding.instance.addObserver(this);
     SystemChrome.setPreferredOrientations([

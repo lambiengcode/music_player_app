@@ -1,4 +1,5 @@
 import 'package:flutter_music_player/src/app.dart';
+import 'package:flutter_music_player/src/pages/home/pages/music_page.dart';
 import 'package:get/get.dart';
 part 'app_routes.dart';
 
@@ -10,6 +11,11 @@ class AppPages {
     GetPage(
       name: Routes.ROOT,
       page: () => App(),
+      children: [],
+    ),
+    GetPage(
+      name: Routes.MUSIC,
+      page: () => MusicPage(),
       children: [],
     ),
   ];

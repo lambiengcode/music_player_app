@@ -27,7 +27,7 @@ class _WelcomeState extends State<Welcome> {
         ),
         SizedBox(height: 12.0),
         Neumorphic(
-          margin: EdgeInsets.only(right: width * .525),
+          margin: EdgeInsets.only(right: width * .5),
           padding: EdgeInsets.symmetric(
             vertical: 12.0,
             horizontal: 32.0,

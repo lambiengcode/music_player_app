@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_music_player/src/pages/home/pages/music_page.dart';
 import 'package:flutter_music_player/src/public/style.dart';
 import 'package:flutter_music_player/src/repositories/playlist.dart';
 import 'package:flutter_music_player/src/repositories/song.dart';
-import 'package:flutter_music_player/src/views/home/components/playlist_card.dart';
-import 'package:flutter_music_player/src/views/home/components/song_card.dart';
-import 'package:flutter_music_player/src/views/home/components/top_bar.dart';
-import 'package:flutter_music_player/src/views/home/components/welcome.dart';
+import 'package:flutter_music_player/src/pages/home/components/playlist_card.dart';
+import 'package:flutter_music_player/src/pages/home/components/song_card.dart';
+import 'package:flutter_music_player/src/pages/home/components/top_bar.dart';
+import 'package:flutter_music_player/src/pages/home/components/welcome.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomeView extends StatefulWidget {
@@ -76,6 +77,17 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget _buildRecentlyList(context) {
+    void showPaymentBottomSheet() {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: colorBlack1.withOpacity(.55),
+        context: context,
+        builder: (context) {
+          return MusicPage();
+        },
+      );
+    }
+
     return Container(
       width: width,
       child: Column(
@@ -86,10 +98,13 @@ class _HomeViewState extends State<HomeView> {
             padding: EdgeInsets.all(.0),
             itemCount: songs.length,
             itemBuilder: (context, index) {
-              return SongCard(
-                index: index,
-                isLast: index == 2,
-                songInfo: songs[index],
+              return GestureDetector(
+                onTap: () => showPaymentBottomSheet(),
+                child: SongCard(
+                  index: index,
+                  isLast: index == 2,
+                  songInfo: songs[index],
+                ),
               );
             },
           ),
