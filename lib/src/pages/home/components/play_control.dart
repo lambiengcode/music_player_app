@@ -3,8 +3,6 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../public/style.dart';
-import '../../../public/style.dart';
-import '../../../public/style.dart';
 
 class PlayControl extends StatefulWidget {
   @override

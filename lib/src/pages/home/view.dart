@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_music_player/src/pages/home/pages/music_page.dart';
@@ -80,10 +82,22 @@ class _HomeViewState extends State<HomeView> {
     void showPaymentBottomSheet() {
       showModalBottomSheet(
         isScrollControlled: true,
-        backgroundColor: colorBlack1.withOpacity(.75),
+        backgroundColor: colorBlack1.withOpacity(.1),
         context: context,
         builder: (context) {
-          return MusicPage();
+          return ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: colorBlack1.withOpacity(.1),
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: MusicPage(),
+              ),
+            ),
+          );
         },
       );
     }
