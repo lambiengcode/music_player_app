@@ -18,7 +18,10 @@ class _MusicPageState extends State<MusicPage>
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this);
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 10),
+    );
     _animationController.repeat();
     super.initState();
   }
@@ -44,7 +47,7 @@ class _MusicPageState extends State<MusicPage>
                   animation: _animationController,
                   builder: (context, child) {
                     return Transform.rotate(
-                      angle: _animationController.value * 2.0,
+                      angle: _animationController.value * 6.0,
                       child: child,
                     );
                   },
