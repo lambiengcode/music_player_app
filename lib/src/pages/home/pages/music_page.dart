@@ -11,8 +11,24 @@ class MusicPage extends StatefulWidget {
   State<StatefulWidget> createState() => _MusicPageState();
 }
 
-class _MusicPageState extends State<MusicPage> {
+class _MusicPageState extends State<MusicPage>
+    with SingleTickerProviderStateMixin {
   double _currentSliderValue = 20;
+  AnimationController _animationController;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(vsync: this);
+    _animationController.repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,16 +40,25 @@ class _MusicPageState extends State<MusicPage> {
                 SizedBox(height: height / 20.0),
                 AppBarCustom(),
                 SizedBox(height: height / 15.0),
-                Container(
-                  height: width * .75,
-                  width: width * .75,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://yt3.ggpht.com/ytc/AAUvwnjZFhxazvVmrkvRTwEVm_OV6gQsgmw3EN261lCy4Q=s900-c-k-c0x00ffffff-no-rj',
+                AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (context, child) {
+                    return Transform.rotate(
+                      angle: _animationController.value * 2.0,
+                      child: child,
+                    );
+                  },
+                  child: Container(
+                    height: width * .75,
+                    width: width * .75,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          'https://yt3.ggpht.com/ytc/AAUvwnjZFhxazvVmrkvRTwEVm_OV6gQsgmw3EN261lCy4Q=s900-c-k-c0x00ffffff-no-rj',
+                        ),
+                        fit: BoxFit.cover,
                       ),
-                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
